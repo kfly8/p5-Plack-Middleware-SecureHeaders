@@ -5,12 +5,14 @@ Plack::Middleware::SecureHeaders - manage security headers with many safe defaul
 
 # SYNOPSIS
 
-    use Plack::Builder;
+```perl
+use Plack::Builder;
 
-    builder {
-        enable 'SecureHeaders';
-        $app;
-    };
+builder {
+    enable 'SecureHeaders';
+    $app;
+};
+```
 
 # DESCRIPTION
 
@@ -21,14 +23,16 @@ NOTE: To protect against these attacks, sanitization of user input values and ot
 
 By default, the following HTTP headers are set:
 
-    Content-Security-Policy: default-src 'self' https:; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'; script-src https:; style-src 'self' https: 'unsafe-inline'
-    Strict-Transport-Security: max-age=631138519
-    X-Content-Type-Options: nosniff
-    X-Download-Options: noopen
-    X-Frame-Options: sameorigin
-    X-Permitted-Cross-Domain-Policies: none
-    X-XSS-Protection: 1; mode=block
-    Referrer-Policy: 'strict-origin-when-cross-origin',
+```
+Content-Security-Policy: default-src 'self' https:; font-src 'self' https: data:; img-src 'self' https: data:; object-src 'none'; script-src https:; style-src 'self' https: 'unsafe-inline'
+Strict-Transport-Security: max-age=631138519
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: sameorigin
+X-Permitted-Cross-Domain-Policies: none
+X-XSS-Protection: 1; mode=block
+Referrer-Policy: 'strict-origin-when-cross-origin',
+```
 
 This default value refers to the following sites [https://github.com/github/secure\_headers#default-values](https://github.com/github/secure_headers#default-values).
 
@@ -36,20 +40,22 @@ This default value refers to the following sites [https://github.com/github/secu
 
 Secure HTTP headers can be changed as follows:
 
-    use Plack::Builder;
+```perl
+use Plack::Builder;
 
-    builder {
-        enable 'SecureHeaders',
-            content_security_policy           => "default-src 'self'",
-            strict_transport_security         => 'max-age=631138519; includeSubDomains',
-            x_frame_options                   => 'DENY',
-            x_permitted_cross_domain_policies => 'none',
-            x_xss_protection                  => '1',
-            referrer_policy                   => 'no-referrer',
-        ;
+builder {
+    enable 'SecureHeaders',
+        content_security_policy           => "default-src 'self'",
+        strict_transport_security         => 'max-age=631138519; includeSubDomains',
+        x_frame_options                   => 'DENY',
+        x_permitted_cross_domain_policies => 'none',
+        x_xss_protection                  => '1',
+        referrer_policy                   => 'no-referrer',
+    ;
 
-        $app;
-    };
+    $app;
+};
+```
 
 # SEE ALSO
 
