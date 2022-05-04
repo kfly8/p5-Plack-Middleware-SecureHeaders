@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "manage security headers with many safe defaults",
    "author" : [
       "kfly8 <kfly@cpan.org>"
    ],
@@ -42,16 +42,29 @@
       },
       "runtime" : {
          "requires" : {
+            "Plack" : "0",
             "perl" : "5.008001"
          }
       },
       "test" : {
          "requires" : {
+            "Plack::Test" : "0",
             "Test::More" : "0.98"
          }
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders/issues"
+      },
+      "homepage" : "https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders.git",
+         "web" : "https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders"
+      }
+   },
    "version" : "0.01",
    "x_authority" : "cpan:KFLY",
    "x_serialization_backend" : "JSON::PP version 4.06",
