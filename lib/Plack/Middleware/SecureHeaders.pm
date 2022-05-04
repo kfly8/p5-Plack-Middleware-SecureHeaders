@@ -147,6 +147,23 @@ Secure HTTP headers can be changed as follows:
         $app;
     };
 
+=head1 FAQ
+
+=over 4
+
+=item How do you remove HTTP header?
+
+Please set undef to HTTP header you want to remove:
+
+    # sef undef
+    $res->header('Content-Security-Policy', undef);
+
+    $res->header('Content-Security-Policy')
+    # => undef
+
+
+=undef
+
 =head1 SEE ALSO
 
 =over 4
