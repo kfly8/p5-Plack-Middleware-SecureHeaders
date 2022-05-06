@@ -4,12 +4,15 @@ use Test::More;
 use Plack::Test;
 use Plack::Builder;
 use HTTP::Request::Common;
+use HTTP::SecureHeaders;
 
 subtest 'Content-Security-Policy option' => sub {
     my $value = "default-src 'self'";
 
     my $app = builder {
-        enable 'SecureHeaders', content_security_policy => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            content_security_policy => $value
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 
@@ -24,7 +27,9 @@ subtest 'Strict-Transport-Security option' => sub {
     my $value = "max-age=31536000; includeSubDomains";
 
     my $app = builder {
-        enable 'SecureHeaders', strict_transport_security => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            strict_transport_security => $value,
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 
@@ -39,7 +44,9 @@ subtest 'X-Frame-Options option' => sub {
     my $value = "DENY";
 
     my $app = builder {
-        enable 'SecureHeaders', x_frame_options => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            x_frame_options => $value,
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 
@@ -54,7 +61,9 @@ subtest 'X-Permitted-Cross-Domain-Policies option' => sub {
     my $value = "master-only";
 
     my $app = builder {
-        enable 'SecureHeaders', x_permitted_cross_domain_policies => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            x_permitted_cross_domain_policies => $value,
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 
@@ -69,7 +78,9 @@ subtest 'X-XSS-Protection option' => sub {
     my $value = "1";
 
     my $app = builder {
-        enable 'SecureHeaders', x_xss_protection => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            x_xss_protection => $value,
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 
@@ -84,7 +95,9 @@ subtest 'Referrer-Policy option' => sub {
     my $value = "no-referrer";
 
     my $app = builder {
-        enable 'SecureHeaders', referrer_policy => $value;
+        enable 'SecureHeaders', secure_headers => HTTP::SecureHeaders->new(
+            referrer_policy => $value,
+        );
         sub { [ 200, ['Content-Type' => 'text/plain'], ['HELLO WORLD'] ] };
     };
 

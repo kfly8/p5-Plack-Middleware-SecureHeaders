@@ -1,5 +1,5 @@
 {
-   "abstract" : "manage security headers with many safe defaults",
+   "abstract" : "manage security headers middleware",
    "author" : [
       "kfly8 <kfly@cpan.org>"
    ],
@@ -42,12 +42,13 @@
       },
       "runtime" : {
          "requires" : {
-            "Plack" : "0",
+            "HTTP::SecureHeaders" : "0",
             "perl" : "5.008001"
          }
       },
       "test" : {
          "requires" : {
+            "Module::Build::Tiny" : "0.035",
             "Plack::Test" : "0",
             "Test::More" : "0.98"
          }
