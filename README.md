@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders/actions/workflows/test.yml/badge.svg)](https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders/actions)
+[![Actions Status](https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders/actions/workflows/test.yml/badge.svg)](https://github.com/kfly8/p5-Plack-Middleware-SecureHeaders/actions) [![Coverage Status](http://codecov.io/github/kfly8/p5-Plack-Middleware-SecureHeaders/coverage.svg?branch=main)](https://codecov.io/github/kfly8/p5-Plack-Middleware-SecureHeaders?branch=main) [![MetaCPAN Release](https://badge.fury.io/pl/Plack-Middleware-SecureHeaders.svg)](https://metacpan.org/release/Plack-Middleware-SecureHeaders)
 # NAME
 
 Plack::Middleware::SecureHeaders - manage security headers middleware
